@@ -1,18 +1,17 @@
 # Compile under Linux desktop
 CC = gcc
 CXX = g++
-INC = ./
-INC_PARAMS=$(INC:%=-I%) 
+INC = ./ ./include/
 INC_PARAMS=$(INC:%=-I%) $(shell pkg-config --cflags Qt5Core Qt5Widgets Qt5Gui)
 CXXFLAGS += -c -std=c++11 -Wall -O2 -fPIC
 CFLAGS += -c -Wall -O2
 LDLIBS = $(shell pkg-config --libs Qt5Core Qt5Widgets Qt5Gui)
 
-BASE_OBJECTS 	=			pacmanwindow.o \
-							jeu.o \
+BASE_OBJECTS 	=			src/pacmanwindow.o \
+							src/jeu.o \
 							main.o
 
-TARGET 	=			main
+TARGET 			=			main
 
 .PHONY: all all_
 all_: $(TARGET) ; $(info Compiling with ${CXX})
