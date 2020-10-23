@@ -41,6 +41,3 @@ cd ..
 cp build/bin/main .
 ./main
 ```
-
-
-
