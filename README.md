@@ -26,6 +26,14 @@ make run
 ```bash
 # In root project
 mkdir build
+cd build/
+# In build folder
+cmake ..
+make
+cd ..
+# In root project
+cp build/bin/main .
+./main
 ```
 
 
