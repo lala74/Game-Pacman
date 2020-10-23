@@ -26,6 +26,7 @@ find_package(Qt5 COMPONENTS Core Widgets Gui REQUIRED)
 
 # Bring header file into project
 include_directories(
+    ${CMAKE_SOURCE_DIR}/include
     ${CMAKE_SOURCE_DIR}
     ${Qt5Core_INCLUDES}
     ${Qt5Gui_INCLUDES}
@@ -37,13 +38,18 @@ add_definitions(${Qt5Gui_DEFINITIONS})
 add_definitions(${Qt5Widgets_DEFINITIONS})
 
 # Create base objects
-set(BASE_OBJECTS jeu.cpp pacmanwindow.cpp)
+# Create sources variable which contains all source files
+file(GLOB_RECURSE SOURCES  
+    ${CMAKE_SOURCE_DIR}/main.cpp 
+    ${CMAKE_SOURCE_DIR}/src/*.cpp
+    ${CMAKE_SOURCE_DIR}/src/*.c
+)
 
 set(CMAKE_CXX_FLAGS "${Qt5Widgets_EXECUTABLE_COMPILE_FLAGS}")
 set(CMAKE_CXX_FLAGS "-fPIC")
 
 # Executable for server
-add_executable(${BASE_TARGET} ${BASE_OBJECTS} main.cpp)
+add_executable(${BASE_TARGET} ${SOURCES})
 
 target_link_libraries(${BASE_TARGET} 
     Qt5::Core
@@ -52,7 +58,6 @@ target_link_libraries(${BASE_TARGET}
 )
 
 add_custom_target(run
-    COMMAND cp ${CMAKE_CURRENT_SOURCE_DIR}/build/bin/${BASE_TARGET} .
     COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/${BASE_TARGET}
     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR/build}
 )
