@@ -5,8 +5,8 @@ This is a 4th year project of INSA Centre Val de Loire. A pacman game with very 
 
 ## How to play
 
-joueur1 : les fleches
-joueur2 : ZSQD
+- joueur 1 : les fleches
+- joueur 2 : ZSQD
 
 Veuillez utiliser le clavier francais (AZERTY) pour avoir une meilleur experience en jouant.
 
