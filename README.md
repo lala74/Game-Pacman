@@ -18,7 +18,11 @@ Veuillez utiliser le clavier francais (AZERTY) pour avoir une meilleur experienc
 
 ## 3. How to build
 This build is target for Linux system (especially for Ubuntu)   
-Qt5 must be presented in your system (install qt5 from homepage)
+Qt5 must be presented in your system
+```bash
+# Install Qt libraries for Ubuntu
+sudo apt-get install qtbase5-dev
+```
 
 ### 3.1. With Makefile
 ```bash
